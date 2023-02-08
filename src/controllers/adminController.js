@@ -7,7 +7,6 @@ class AdminControler {
     });
   }
 
-
   static listarAdminPorId(req, res) {
     const id = req.params.id;
 
@@ -40,14 +39,14 @@ class AdminControler {
     const id = req.params.id;
 
     admins.findByIdAndUpdate(id, { $set: req.body }, (err) => {
-      if (!err) {
-        res
-          .status(200)
-          .send({ message: "O cliente foi atualizado com sucesso" });
-      } else {
+      if (err) {
         res.status(500).send({
           message: `${err.message} - ID incorreto, não foi possível atualizar o admin `,
         });
+      } else {
+        res
+          .status(200)
+          .send({ message: "O cliente foi atualizado com sucesso" });
       }
     });
   }
@@ -56,12 +55,12 @@ class AdminControler {
     const id = req.params.id;
 
     admins.findByIdAndDelete(id, (err) => {
-      if (!err) {
-        res.status(200).send({ message: `Admin removido com sucesso` });
-      } else {
+      if (err) {
         res.status(500).send({
           message: `${err} - Id incorreto, não foi possivel deletar o admin`,
         });
+      } else {
+        res.status(200).send({ message: `Admin removido com sucesso` });
       }
     });
   }

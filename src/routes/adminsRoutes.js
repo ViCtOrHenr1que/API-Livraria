@@ -5,10 +5,10 @@ const router = express.Router();
 
 router
     .get("/admins", AdminControler.listarAdmins)
-    .get("/admin/:id", AdminControler.listarAdminPorId)
-    .post("/admin", AdminControler.cadastrarAdmin)
-    .put("/admin/:id", AdminControler.atualizarAdimin)
-    .delete("/admin/:id", AdminControler.deletarAdmin)
+    .get("/admins/:id", AdminControler.listarAdminPorId)
+    .post("/admins", AdminControler.cadastrarAdmin)
+    .put("/admins/:id", AdminControler.atualizarAdimin)
+    .delete("/admins/:id", AdminControler.deletarAdmin)
 
 
 

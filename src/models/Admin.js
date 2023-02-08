@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const adminSchema = new mongoose.Schema({
   id: { type: String },
   funcional: { type: Number, required: true },
